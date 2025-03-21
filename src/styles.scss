@@ -1,1 +1,84 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Custom color variables override - must be before Bootstrap import
+$primary: rgb(247, 237, 218);  // Cream/beige for bg-primary
+$secondary: #000000;  // Black for bg-secondary 
+$primary-text: #000000;  // Text color for elements with bg-primary
+$secondary-text: rgb(247, 237, 218);  // Text color for elements with bg-secondary
+
+// Set Helvetica as the default font family
+$font-family-base: "Helvetica", "Arial", sans-serif;
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+.bg-primary {
+  color: $primary-text !important;
+}
+
+.bg-secondary {
+  color: $secondary-text !important;
+}
+
+// Ensure navbar text is beige
+.navbar.bg-secondary {
+  .navbar-brand, 
+  .nav-link, 
+  .navbar-toggler {
+    color: rgb(247, 237, 218) !important;
+  }
+}
+
+// Navbar shrink effect
+#mainNav {
+  height: 100px;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+#mainNav.navbar-shrink {
+  height: 60px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: $secondary !important;
+}
+
+// Add specific styles for navbar links during scroll
+#mainNav .nav-link {
+  transition: padding 0.3s ease-in-out;
+}
+
+#mainNav.navbar-shrink .nav-link {
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+}
+
+#menubutton {
+  color: rgb(247, 237, 218) !important; 
+  outline-color: rgb(247, 237, 218) !important;
+  border: 1px solid rgb(247, 237, 218) !important;
+  background-color: black !important;
+}
+
+.navbar.bg-secondary .nav-link:hover {
+  color: rgba(247, 237, 218, 0.8) !important;
+}
+
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+  background-color: $primary; // Set beige as default background
+  color: $primary-text; // Set black as default text color
+}
+
+:root {
+    --navbar-height: 60px;
+    
+    @media (min-width: 768px) {
+      --navbar-height: 80px;
+    }
+    
+    @media (min-width: 992px) {
+      --navbar-height: 100px;
+    }
+  }
