@@ -9,6 +9,9 @@ $secondary-text: rgb(247, 237, 218);  // Text color for elements with bg-seconda
 // Set Helvetica as the default font family
 $font-family-base: "Helvetica", "Arial", sans-serif;
 
+// Import Font Awesome
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 
@@ -59,16 +62,67 @@ $font-family-base: "Helvetica", "Arial", sans-serif;
   outline-color: rgb(247, 237, 218) !important;
   border: 1px solid rgb(247, 237, 218) !important;
   background-color: black !important;
+  &:active,
+  &:focus,
+  &.active {
+    color: rgb(247, 237, 218) !important;
+    outline-color: rgb(247, 237, 218) !important;
+    border: 1px solid rgb(247, 237, 218) !important;
+    background-color: black !important;
+    box-shadow: none !important;
+  }
+}
+#menubutton:hover {
+  color: rgba(247, 237, 218, 0.8) !important;
 }
 
 .navbar.bg-secondary .nav-link:hover {
   color: rgba(247, 237, 218, 0.8) !important;
 }
 
+.btn:hover{
+  background-color: rgba(247, 237, 218, 0.8) !important;
+}
+
+// Mobile navbar dropdown fixes
+@media (max-width: 992px) {
+  .navbar-collapse {
+    background-color: $secondary;
+    border-radius: 0 0 5px 5px;
+    padding: 10px;
+    margin-top: 0; 
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    transition: all 0.4s ease-out;
+    transform-origin: top center;
+  }
+  
+  // Animation states for navbar collapse
+  .navbar-collapse.collapsing {
+    height: 0;
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  
+  .navbar-collapse.show {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  
+  #navbarResponsive .nav-link {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    text-align: center;
+  }
+}
+
 body {
   font-family: "Helvetica", "Arial", sans-serif;
-  background-color: $primary; // Set beige as default background
-  color: $primary-text; // Set black as default text color
+  background-color: rgb(247, 237, 218);
 }
 
 :root {
